@@ -12,7 +12,7 @@ import kotlin.jvm.optionals.getOrNull
 
 @RestController
 @RequestMapping("/categories")
-class CategoryController(
+class ControllerCategory(
     private val repositoryCategory: RepositoryCategory
 ) {
 
