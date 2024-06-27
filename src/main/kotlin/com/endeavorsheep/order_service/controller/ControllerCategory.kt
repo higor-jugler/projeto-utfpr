@@ -42,17 +42,4 @@ class ControllerCategory(
     fun save(@Valid @RequestBody category: Category): Category {
         return repositoryCategory.save(category)
     }
-
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(MethodArgumentNotValidException::class)
-    fun handleValidationExceptions(ex: MethodArgumentNotValidException): Map<String, String> {
-        val errors = mutableMapOf<String, String>()
-        ex.bindingResult.allErrors.forEach { error ->
-            val fieldName = (error as FieldError).field
-            val errorMessage = error.defaultMessage ?: ""
-            errors[fieldName] = errorMessage
-        }
-        return errors
-    }
-
 }

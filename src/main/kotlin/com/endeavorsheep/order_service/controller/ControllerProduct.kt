@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 import kotlin.jvm.optionals.getOrNull
 
@@ -19,7 +20,7 @@ class ControllerProduct(
 ) {
 
     @GetMapping
-    fun list(): List<Product> {
+    fun list(@RequestParam query: String): List<Product> {
         return repositoryProduct.findAll()
     }
 
